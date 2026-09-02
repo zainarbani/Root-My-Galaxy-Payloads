@@ -208,7 +208,9 @@ static void __decrease(struct kernelsnitch_shared_state *ks)
 #endif
 static int __compare(const void *a, const void *b)
 {
-    return (*(size_t *)a - *(size_t *)b);
+    size_t va = *(const size_t *)a;
+    size_t vb = *(const size_t *)b;
+    return (va > vb) - (va < vb);
 }
 
 /**
@@ -254,7 +256,6 @@ static size_t __measure_r(
         avg_n = repeats;
     }
     for (size_t l = 0; l < repeats; ++l) {
-        sched_yield();
         t0 = rdtsc_begin();
         SYSCHK(__futex((unsigned int *)futex_addr, FUTEX_WAKE_PRIVATE, 0, NULL, NULL, 0));
         t1 = rdtsc_end();

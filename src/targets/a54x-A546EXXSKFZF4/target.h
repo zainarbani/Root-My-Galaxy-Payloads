@@ -100,6 +100,7 @@
 #define SLIDE_KSNITCH_SCREEN_REPEAT 16
 #define SLIDE_KSNITCH_SCREEN_AVERAGE 3
 #define KSNITCH_FULL_COLLISIONS 4
+#define KSNITCH_HINT_COLLISIONS 3
 #define KERNELSNITCH_COLLISION_CONFIRMATIONS 2
 
 /* --- controlled-mm bank layout ------------------------------------------- */
