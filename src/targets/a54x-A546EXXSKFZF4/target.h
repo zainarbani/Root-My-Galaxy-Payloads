@@ -114,6 +114,8 @@
 /* ---------------------------------------------------------------------------
  * Collision / reclaim tuning (device-specific)
  * ------------------------------------------------------------------------- */
+#define RECLAIM_SOCKET_PAIRS 16
+#define SKB_SENDS 128
 #define SKB_SEND_SIZE 0x8e80
 #define SKB_RECLAIM_SENDS 64
 #define SLIDE_RECLAIM_SENDS 64

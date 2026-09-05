@@ -332,6 +332,7 @@ static int collect_controlled_mm_group(size_t cpu_count, uintptr_t *base_out,
   free(seen);
   free(fds);
   free(counts);
+  free(bases);
   return result;
 }
 
@@ -371,14 +372,10 @@ static int drain_controlled_mm_group(
           TRIGGER_SLABS,
           trigger_refs - TRIGGER_SLABS + 1, sched_getcpu());
 #endif
-  SYSCHK(fflush(NULL));
   SYSCHK(close(shaping_sv[0]));
   shaping_sv[0] = -1;
   SYSCHK(close(shaping_sv[1]));
   shaping_sv[1] = -1;
-  sched_yield();
-  sched_yield();
-  sched_yield();
   SYSCHK(close(target_fds[batch - 1]));
   target_fds[batch - 1] = -1;
   return 1;

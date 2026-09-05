@@ -447,6 +447,7 @@ int run_exploit(int argc, char **argv) {
   if (pipe_prepare_child > 0) {
     SYSCHK(kill(pipe_prepare_child, SIGKILL));
     SYSCHK(waitpid(pipe_prepare_child, NULL, 0));
+    pipe_prepare_child = -1;
   }
   int exploit_ok = atomic_load(&cfi_stage_done) && root_child_done;
   if (exploit_ok) {
