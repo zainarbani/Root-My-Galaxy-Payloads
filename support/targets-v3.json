@@ -231,6 +231,24 @@
         "url": "https://raw.githubusercontent.com/zainarbani/Root-My-Galaxy-Payloads/a54x-test/kernelsu/ksud-next-a54x-A546EXXSKFZF4-kdp",
         "size": 4083520
       }
+    },
+    {
+      "payloadId": "a26x-A266BXXSBCZG2",
+      "displayName": "Galaxy A26 | Kernel 5.15.189",
+      "models": ["SM-A266B"],
+      "kernelVersions": ["5.15.189"],
+      "exploit": {
+        "url": "https://raw.githubusercontent.com/zainarbani/Root-My-Galaxy-Payloads/a54x-test/artifacts/a26x-A266BXXSBCZG2/cve-2026-43499-app.so",
+        "size": 104128
+      },
+      "kernelsu": {
+        "url": "https://raw.githubusercontent.com/zainarbani/Root-My-Galaxy-Payloads/a54x-test/kernelsu/ksud-a54x-A546EXXSKFZF4-kdp",
+        "size": 3828432
+      },
+      "kernelsu-next": {
+        "url": "https://raw.githubusercontent.com/zainarbani/Root-My-Galaxy-Payloads/a54x-test/kernelsu/ksud-next-a54x-A546EXXSKFZF4-kdp",
+        "size": 4083520
+      }
     }
   ]
 }
