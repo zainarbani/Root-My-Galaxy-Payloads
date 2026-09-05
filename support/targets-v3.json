@@ -213,6 +213,24 @@
         "url": "https://raw.githubusercontent.com/zainarbani/Root-My-Galaxy-Payloads/a54x-test/kernelsu/ksud-next-a54x-A546EXXSKFZF4-kdp",
         "size": 4083520
       }
+    },
+    {
+      "payloadId": "m54xxx-M546BXXUCFZE5",
+      "displayName": "Galaxy M54 | Kernel 5.15.189",
+      "models": ["SM-M546B"],
+      "kernelVersions": ["5.15.189"],
+      "exploit": {
+        "url": "https://raw.githubusercontent.com/zainarbani/Root-My-Galaxy-Payloads/a54x-test/artifacts/m54xxx-M546BXXUCFZE5/cve-2026-43499-app.so",
+        "size": 104128
+      },
+      "kernelsu": {
+        "url": "https://raw.githubusercontent.com/zainarbani/Root-My-Galaxy-Payloads/a54x-test/kernelsu/ksud-a54x-A546EXXSKFZF4-kdp",
+        "size": 3828432
+      },
+      "kernelsu-next": {
+        "url": "https://raw.githubusercontent.com/zainarbani/Root-My-Galaxy-Payloads/a54x-test/kernelsu/ksud-next-a54x-A546EXXSKFZF4-kdp",
+        "size": 4083520
+      }
     }
   ]
 }
